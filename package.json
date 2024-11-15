@@ -1,0 +1,13 @@
+{
+  "name": "ai2-project",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: No test specified\" && exit 1"
+  },
+  "dependencies": {
+    "nlp": "^1.0.0", // Replace with your NLP library
+    "cv": "^1.0.0"  // Replace with your computer vision library
+  }
+}
