@@ -1,0 +1,6 @@
+tensorflow
+keras
+nltk
+transformers
+requests
+flask  # For web interface (example)
