@@ -7,7 +7,7 @@
     "test": "echo \"Error: No test specified\" && exit 1"
   },
   "dependencies": {
-    "nlp": "^1.0.0", // Replace with your NLP library
-    "cv": "^1.0.0"  // Replace with your computer vision library
+    "nlp": "^1.0.0",
+    "cv": "^1.0.0"
   }
 }
