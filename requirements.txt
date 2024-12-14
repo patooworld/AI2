@@ -4,3 +4,5 @@ nltk
 transformers
 requests
 flask  # For web interface (example)
+Machine Learning # Powers the AI's ability to learn and improve over time. 
+Search Capabilities # Provides access to vast amounts of information and knowledge.
