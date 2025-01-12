@@ -9,20 +9,34 @@
 
 <body>
 	<main>
+		<div class="api-key-banner">
+			To get started with the Gemini API,
+			<a href="https://g.co/ai/idxGetGeminiKey" target="_blank">
+			get an API key</a> and set it in the <code>.idx/dev.nix</code> file
+			<br><br>
+			Then rebuild the enviroment and delete this banner
+		</div>
 
-		<h1 class="title">BAKE WITH ATG</h1>
+		<h1 class="title">Baking with Gemini</h1>
 		<form>
 			<div class="image-picker">
 				<label class="image-choice">
-					<input type="radio" name="chosenImage" value="image-choice">
-      <div class="logo">
-        <img src="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld">
-      </div>
-</div>
+					<input type="radio" name="chosenImage" value="baked_goods_1.jpeg" checked>
+					<img src="/images/baked_goods_1.jpeg">
+				</label>
+				<label class="image-choice">
+					<input type="radio" name="chosenImage" value="baked_goods_2.jpeg">
+					<img src="/images/baked_goods_2.jpeg">
+				</label>
+				<label class="image-choice">
+					<input type="radio" name="chosenImage" value="baked_goods_3.jpeg">
+					<img src="/images/baked_goods_3.jpeg">
+				</label>
+			</div>
 			<div class="prompt-box">
 				<label>
 					<input name="prompt" placeholder="Enter instructions here" type="text"
-						value="provide image description">
+						value="Provide an example recipe for the baked goods in the image">
 				</label>
 				<button type="submit">Go</button>
 			</div>
