@@ -1,106 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patooworld Search</title>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-    }
-
-    header {
-      background-color: #fff;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .logo {
-      float: center;
-      margin-right: 20px;
-    }
-
-    .logo img {
-      width: 150px;
-    }
-
-    form {
-      float: left;
-      width: 100%;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    button {
-      background-color: #4285f4;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .footer-text {
-      color: #777;
-    }
-  </style>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Baking with Gemini</title>
+	<link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-  <header>
-    <div class="container">
+	<main>
+
+		<h1 class="title">BAKE WITH ATG</h1>
+		<form>
+			<div class="image-picker">
+				<label class="image-choice">
+					<input type="radio" name="chosenImage" value="image-choice">
       <div class="logo">
         <img src="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld">
       </div>
 </div>
-</form>
-    <div class="image-picker">
-  <input type="file" id="imageUpload" accept="image/*">
-  <label for="imageUpload" class="image-upload-label">
-     <div class="upload-icon">➕</div> </label>
-     <script>
-       const uploadInput = document.getElementById('imageUpload');
-       const uploadedImage = document.getElementById('uploadedImage');
+			<div class="prompt-box">
+				<label>
+					<input name="prompt" placeholder="Enter instructions here" type="text"
+						value="provide image description">
+				</label>
+				<button type="submit">Go</button>
+			</div>
+		</form>
+		<p class="output">(Response will appear here)</p>
 
-       uploadInput.addEventListener('change', (event) => {
-         const file = event.target.files[0];
-         const reader = new FileReader();
-
-         reader.onload = (e) => {
-           uploadedImage.src = e.target.result;
-           uploadedImage.alt = file.name; // Set alt text to filename
-         }
-         reader.readAsDataURL(file);
-
-         // Reset to default image if no file is selected
-         uploadInput.addEventListener('click', () => {
-           if (uploadInput.files.length === 0) {
-             uploadedImage.src ="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld"';
-             uploadedImage.alt = 'Uploaded Image';
-           }
-         });
-       });
-     </script>
-</div>
+		<script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
+		<script src="/main.js"></script>
 </body>
 </html>
