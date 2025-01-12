@@ -73,25 +73,39 @@
         <img src="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld">
         <img src="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld">
       </div>
-      <script async src="https://9002-idx-ai-1736632591903.cluster-6yqpn75caneccvva7hjo4uejgk.cloudworkstations.dev">
+      <script async src="https://www.patooworld.com/search?q=">
 </script>
 <div class="PATOOWORLD">
 </div>
 </form>
-    </div>
-  </header>
-  <footer>
-    <div class="container">
-      <p class="footer-text">Your Choice, We Adore. your AI Powered search</p>
-    </div>
-  </footer>
-  <script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-      const queryInput = form.querySelector('input[name="q"]');
-      const query = queryInput.value;
-      queryInput.value = query ';
-    });
-  </script>
+    <div class="image-picker">
+  <input type="file" id="imageUpload" accept="image/*">
+  <label for="imageUpload" class="image-upload-label">
+    <img id="uploadedImage" src="/images/baked_goods_1.jpeg" alt="Uploaded Image" style="aspect-ratio: 1 / 1;">
+     <div class="upload-icon">➕</div> </label>
+     <script>
+       const uploadInput = document.getElementById('imageUpload');
+       const uploadedImage = document.getElementById('uploadedImage');
+
+       uploadInput.addEventListener('change', (event) => {
+         const file = event.target.files[0];
+         const reader = new FileReader();
+
+         reader.onload = (e) => {
+           uploadedImage.src = e.target.result;
+           uploadedImage.alt = file.name; // Set alt text to filename
+         }
+         reader.readAsDataURL(file);
+
+         // Reset to default image if no file is selected
+         uploadInput.addEventListener('click', () => {
+           if (uploadInput.files.length === 0) {
+             uploadedImage.src = '/images/baked_goods_1.jpeg';
+             uploadedImage.alt = 'Uploaded Image';
+           }
+         });
+       });
+     </script>
+</div>
 </body>
 </html>
