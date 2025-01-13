@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Opossum Search</title>
+  <title>Patooworld Search</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -70,26 +70,26 @@
   <header>
     <div class="container">
       <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Opossum_2.jpg/292px-Opossum_2.jpg" alt="Opossum Logo">
+        <img src="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld">
       </div>
-      <form action="https://www.google.com/search" method="get">
-        <input type="text" name="q" placeholder="Search the web..." required>
-        <button type="submit">Search</button>
-      </form>
+      <script async src="https://cse.google.com/cse.js?cx=b25bfdb1d1f084216">
+</script>
+<div class="gcse-search">
+</div>
+</form>
     </div>
   </header>
   <footer>
     <div class="container">
-      <p class="footer-text">Powered by opossum search</p>
+      <p class="footer-text">Your Choice, We Adore. Your AI Powered search</p>
     </div>
   </footer>
   <script>
-    // Add "opossum" to the search query before submitting the form
     const form = document.querySelector('form');
     form.addEventListener('submit', (event) => {
       const queryInput = form.querySelector('input[name="q"]');
       const query = queryInput.value;
-      queryInput.value = query + ' opossum';
+      queryInput.value = query ';
     });
   </script>
 </body>
