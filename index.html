@@ -1,96 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>keywords Search</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-    }
-
-    header {
-      background-color: #fff;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .logo {
-      float: left;
-      margin-right: 20px;
-    }
-
-    .logo img {
-      width: 150px;
-    }
-
-    form {
-      float: left;
-      width: 100%;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    button {
-      background-color: #4285f4;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .footer-text {
-      color: #777;
-    }
-  </style>
+    <title>Media Recorder and Image Upload</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .media-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        #imagePreview {
+            max-width: 300px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <header>
     <div class="container">
-      <div class="logo">
-        <img src="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld">
-      </div>
-      <script async src="https://cse.google.com/cse.js?cx=b25bfdb1d1f084216">
-</script>
-<div class="gcse-search">
-</div>
-</form>
+        <div class="media-section">
+            <h2>Audio Recording</h2>
+            <button id="recordButton">Start Recording</button>
+            <button id="stopButton" disabled>Stop Recording</button>
+            <audio id="audioPlayback" controls></audio>
+        </div>
+        <div class="media-section">
+            <h2>Image Upload</h2>
+            <input type="file" id="imageUpload" accept="image/*">
+            <img id="imagePreview">
+        </div>
     </div>
-  </header>
-  <footer>
-    <div class="container">
-      <p class="footer-text">Your Choice, We Adore. Your AI Powered search</p>
-    </div>
-  </footer>
-  <script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-      const queryInput = form.querySelector('input[name="q"]');
-      const query = queryInput.value;
-      queryInput.value = query ';
-    });
-  </script>
+    <script>
+        // Audio Recording Logic
+        const recordButton = document.getElementById('recordButton');
+        const stopButton = document.getElementById('stopButton');
+        const audioPlayback = document.getElementById('audioPlayback');
+        let mediaRecorder;
+        let audioChunks = [];
+
+        recordButton.addEventListener('click', async () => {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder.ondataavailable = event => {
+                audioChunks.push(event.data);
+            };
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                audioPlayback.src = audioUrl;
+                audioChunks = [];
+            };
+            mediaRecorder.start();
+            recordButton.disabled = true;
+            stopButton.disabled = false;
+        });
+
+        stopButton.addEventListener('click', () => {
+            mediaRecorder.stop();
+            recordButton.disabled = false;
+            stopButton.disabled = true;
+        });
+
+        // Image Upload Logic
+        const imageUpload = document.getElementById('imageUpload');
+        const imagePreview = document.getElementById('imagePreview');
+
+        imageUpload.addEventListener('change', () => {
+            const file = imageUpload.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>
