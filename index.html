@@ -5,43 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <style>
-        /* ... (styles from previous example) */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Welcome</h2>
-        <form id="loginForm" action="/login" method="post">
+        <form id="loginForm">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required pattern="[a-zA-Z0-9\s]+">
-            <small id="usernameError"></small>
+            <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required minlength="8">
-            <small id="passwordError"></small>
+            <input type="password" id="password" name="password" required>
 
             <button type="submit">Login</button>
         </form>
-
         <div class="signup-link">
             Don't have an account? <a href="#" onclick="showSignupForm()">Sign up</a>
         </div>
 
-        <form id="signupForm" style="display:none;" action="/signup" method="post">
+        <form id="signupForm" style="display:none;">
             <label for="newUsername">Username:</label>
-            <input type="text" id="newUsername" name="newUsername" required pattern="[a-zA-Z0-9\s]+">
-            <small id="newUsernameError"></small>
+            <input type="text" id="newUsername" name="newUsername" required>
 
             <label for="newPassword">Password:</label>
-            <input type="password" id="newPassword" name="newPassword" required minlength="8">
-            <small id="newPasswordError"></small>
+            <input type="password" id="newPassword" name="newPassword" required>
 
             <label for="confirmPassword">Confirm Password:</label>
             <input type="password" id="confirmPassword" name="confirmPassword" required>
-            <small id="confirmPasswordError"></small>
 
             <button type="submit">Sign Up</button>
         </form>
+
     </div>
 
     <script>
@@ -49,20 +90,6 @@
             document.getElementById("loginForm").style.display = "none";
             document.getElementById("signupForm").style.display = "block";
         }
-
-        // Client-side validation example (add more as needed)
-        const usernameInput = document.getElementById('username');
-        const usernameError = document.getElementById('usernameError');
-
-        usernameInput.addEventListener('input', () => {
-            if (!usernameInput.validity.valid) {
-                usernameError.textContent = 'Username must be alphanumeric and contain spaces only.';
-            } else {
-                usernameError.textContent = '';
-            }
-        });
-
-        // ... (similar validation for other fields)
     </script>
 </body>
 </html>
