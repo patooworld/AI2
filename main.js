@@ -26,5 +26,5 @@ form.onsubmit = async (ev) => {
             output.appendChild(tag)
         }
     });
-    return true;
+    return false;
 }
