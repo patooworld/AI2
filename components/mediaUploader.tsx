@@ -28,3 +28,24 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload }) => {
     } catch (error) {
       console.error('Error uploading image:', error);
     } finally {
+      setUploading(false);
+    }
+  };
+
+  return (
+    <div>
+      <input type="file" accept="image/*" onChange={handleFileChange} />
+      <button onClick={handleUpload} disabled={!selectedFile || uploading}>
+        {uploading ? "Uploading..." : "Upload Image"}
+      </button>
+      {imageUrl && (
+        <div>
+          <p>Image uploaded successfully!</p>
+          <img src={imageUrl} alt="Uploaded" style={{ maxWidth: '200px' }} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ImageUploader;
