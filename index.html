@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>keywords Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .logo {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .logo img {
+      width: 150px;
+    }
+
+    form {
+      float: left;
+      width: 100%;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #4285f4;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer-text {
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld">
+      </div>
+      <script async src="https://cse.google.com/cse.js?cx=b25bfdb1d1f084216">
+</script>
+<div class="gcse-search">
+</div>
+</form>
+    </div>
+  </header>
+  <footer>
+    <div class="container">
+      <p class="footer-text">Your Choice, We Adore. Your AI Powered search</p>
+    </div>
+  </footer>
+  <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+      const queryInput = form.querySelector('input[name="q"]');
+      const query = queryInput.value;
+      queryInput.value = query 
+    });
+  </script>
+</body>
+</html>
