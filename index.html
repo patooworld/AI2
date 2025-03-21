@@ -1,96 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>keywords Search</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini 2.0 Flash</title>
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    header {
-      background-color: #fff;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-    }
+        .header {
+            display: flex;
+            justify-content: space-between; /* Align items to the left and right */
+            align-items: center;           /* Center vertically */
+            width: 90%;
+            margin-bottom: 20px; /* Add some space below the header */
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+        }
 
-    .logo {
-      float: left;
-      margin-right: 20px;
-    }
+        .dropdown { /* Style the dropdown */
+            background-color: #242424;
+            color: white;
+            padding: 10px;
+            border-radius: 5px; /* Rounded corners */
+            border: none; /* Remove default border */
+            appearance: none; /* Remove dropdown arrow in some browsers */
+        }
 
-    .logo img {
-      width: 150px;
-    }
 
-    form {
-      float: left;
-      width: 100%;
-    }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
+        .system-instructions {
+            background-color: #242424;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            width: 90%;
+            margin-bottom: 40px; /* Add space below instructions */
+        }
 
-    button {
-      background-color: #4285f4;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+        .prompt-text {
+            font-size: 2em;
+            margin-bottom: 40px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-    }
+        .options-container {
+            display: flex;
+            gap: 20px;
+        }
 
-    .footer-text {
-      color: #777;
-    }
-  </style>
+
+        .option-box {
+            background-color: #242424;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center; /* Center text within box */
+        }
+
+        .option-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #7b61ff; /* Purple icon color */
+
+        }
+
+
+        .input-area {
+           display: flex;
+           align-items: center;
+           background-color: #242424;
+           padding: 10px;
+           border-radius: 5px;
+           width: 90%;
+           margin-top: 40px; /* Space above input */
+        }
+
+
+        .input-area input[type="text"] {
+            flex-grow: 1;
+            background-color: transparent; /* Transparent input background */
+            border: none;
+            color: white;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+
+        .input-area button { /* Add a button (or other elements) */
+           background-color: transparent;
+           border: none;
+           color: white;
+           padding: 10px;
+           font-size: 1.2em;
+           cursor: pointer;
+
+        }
+
+        .hamburger-menu{
+            font-size: 1.5em;
+
+        }
+
+
+
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="logo">
-        <img src="https://avatars.githubusercontent.com/u/114192133?v=4" alt="Patooworld">
-      </div>
-       <script async src="https://cse.google.com/cse.js?cx=b25bfdb1d1f084216">
-</script>
-<div class="gcse-search">
-</div>
-</form>
+    <div class="header">
+        <span class="hamburger-menu">&#9776;</span>
+         <select class="dropdown">
+            <option value="gemini-2">Gemini 2.0 Flash</option>
+            </select>
+         <span>EDIT</span>
     </div>
-  </header>
-  <footer>
-    <div class="container">
-      <p class="footer-text">Your Choice, We Adore. Your Keyword Powered search</p>
+
+    <div class="system-instructions">
+        System Instructions
     </div>
-  </footer>
-  <script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', (event) => {
-      const queryInput = form.querySelector('input[name="q"]');
-      const query = queryInput.value;
-      queryInput.value = query ';
-    });
-  </script>
+
+    <div class="prompt-text">
+        It's time to prompt
+    </div>
+
+    <div class="options-container">
+        <div class="option-box">
+            <span class="option-icon">&#128190;</span> <br>
+            Docker Setup<br>
+            Write a Docker set up script for beginners.
+        </div>
+        <div class="option-box">
+            <span class="option-icon">&#128710;</span><br>
+            Trip Ideas<br>
+            Convert unorganized text into structured tables.
+        </div>
+    </div>
+     <div class="input-area">
+
+      <input type="text" placeholder="Type something">
+      <button>+</button>
+      <button>_CI</button>
+
+    </div>
+
+
+
 </body>
 </html>
